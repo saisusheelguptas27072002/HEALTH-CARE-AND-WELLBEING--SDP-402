@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Appointment List{% endblock %}
+{% block content %}
+    <section class="dentist-area section-padding-40-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-heading text-center">
+            <h3>{{ request.user.first_name }}'s Appointment/s</h3>
+            <div class="line"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          {% for apt in appointment %}
+        <div class="col-12 col-sm-6 col-md-4">
+          <br></br>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <center>
+                                            <th scope="col">
+                                                <div class="container">
+                                                    <div class="card" style="width:400px">
+                                                            <div class="card-body">
+                                                                <h4 class="card-title">Information</h4>
+                                                                     <ol>
+                                                                         <li><span>Name :</span><span>{{ apt.full_name }}</span></li>
+                                                                         <li><span>Specialization :</span><span>{{ apt.department }}</span></li>
+                                                                         <li><span>Qualification :</span><span>{{ apt.qualification_name }}</span></li>
+                                                                         <li><span>Start time :</span><span>{{ apt.start_time }}</span></li>
+                                                                         <li><span>End Time :</span><span>{{ apt.end_time }}</span></li>
+                                                                         <li><span>Hosipital name :</span><span>{{ apt.hospital_name }}</span></li>
+                                                                         <li><span>Address :</span><span>{{ apt.location }}</span></li>
+                                                                        <li></li>
+                                                                     </ol>
+                                                                <a href="{% url 'appointment:delete-appointment' apt.id %}" class="btn btn-primary">Remove Appointment</a>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                        </center>
+                                    </tr>
+                                </thead>
+                            </table>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

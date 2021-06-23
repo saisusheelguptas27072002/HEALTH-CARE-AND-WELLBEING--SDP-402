@@ -1,0 +1,113 @@
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>FITLAB {% block title %} {% endblock %}</title>
+
+  <link rel="icon" href="{% static 'img/core-img/favicon.png' %}">
+
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    {% block styles %} {% endblock %}
+
+</head>
+
+<body>
+  {% include 'nav.html' %}
+      {% block content %}
+      {% endblock  %}
+
+  <footer class="footer-area bg-img bg-gradient-overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="single-footer-widget">
+            <a href="./index.html" class="d-block mb-4"><img src="{% static 'img/logo1.png' %}" alt=""></a>
+            <div class="footer-contact">
+                 <p> Welcome to FITLAB</br>One Solution for your all Your Needs Like Fitness, Wellness and Health</p>
+              <p> India</p>
+              <p> 9999999999</p>
+              <p> info.fitlab@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="single-footer-widget">
+            <h5 class="widget-title">Opening Hours</h5>
+
+            <ul class="opening-hours">
+              <li><span>Every Day</span><span> 8:00 AM - 20:00 PM</span></li>
+              <li><span>Sunday</span> <span>Closed</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="single-footer-widget">
+            <h5 class="widget-title">Quick Link</h5>
+
+            <nav>
+              <ul class="quick-links">
+                <li><a href="/aboutus">About</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Policy</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Advisors</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Legals</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="col-6 col-md-9 col-lg-8">
+                    <div class="top-header-content">
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title=""><i
+                                class="fa fa-map-marker"></i> <span>INDIA</span></a>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title=""><i
+                                class="fa fa-envelope"></i> <span>info.fitlab@gmail.com</span></a>
+                    </div>
+                </div>
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="single-footer-widget">
+            <div class="footer-social-info">
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copywrite Area -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="copywrite-content">
+            <p>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made by Team FITLAB</a>
+</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/dento.bundle.js' %}"></script>
+  <script src="{% static 'js/default-assets/active.js' %}"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+   {% block javascripts %} {% endblock %}
+</body>
+
+</html>

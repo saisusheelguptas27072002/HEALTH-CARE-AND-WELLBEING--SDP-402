@@ -1,0 +1,172 @@
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" style="color:white;">Fitlab</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/welcome">
+                                Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/home">Health</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/wellness">Wellness</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/user">Fitness</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/aboutus">AboutUs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+ {% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %}
+  <section class="welcome-area">
+    <div class="welcome-slides owl-carousel">
+      <div class="welcome-welcome-slide bg-img bg-gradient-overlay jarallax"  style="background-image: url('{% static 'img/bg-img/1.jpg' %}');">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12">
+              <div class="welcome-text text-center">
+                <h2 data-animation="fadeInUp" data-delay="100ms">We Believe Everyone Should Have Easy Access To Great Health Care</h2>
+                <div class="welcome-btn-group">
+                    <form id="job-main-form" method="get" action="{% url 'appointment:search' %}" class="search-doctor-form">
+                    <div class="row mb-5">
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                            <select id="department" name="department" class="form-control">
+                                <option style="display: none;" >Select Your Service</option>
+                                <option>Cardiology</option>
+                                <option>Dentistry</option>
+                                <option>ENT Specialists</option>
+                                <option>Astrology</option>
+                                <option>Neuroanatomy</option>
+                                <option>Blood Screening</option>
+                                <option>Eye Care</option>
+                                <option>Physical Therapy</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
+
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block text-black btn-search"><span
+                                    class="icon-search icon mr-2"></span>Search Doctor
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="welcome-welcome-slide bg-img bg-gradient-overlay jarallax"  style="background-image: url('{% static 'img/bg-img/2.jpg' %}');">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12">
+              <div class="welcome-text text-center">
+                <h2 data-animation="fadeInDown" data-delay="100ms">We Believe Everyone Should Have Easy Access To Great Health Care</h2>
+                <div class="welcome-btn-group">
+                    <form id="job-main-form" method="get" action="{% url 'appointment:search' %}" class="search-doctor-form">
+                    <div class="row mb-5">
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                                <select id="department" name="department" class="form-control">
+                                <option style="display: none;" >Select Your Service</option>
+                                <option>Cardiology</option>
+                                <option>Dentistry</option>
+                                <option>ENT Specialists</option>
+                                <option>Astrology</option>
+                                <option>Neuroanatomy</option>
+                                <option>Blood Screening</option>
+                                <option>Eye Care</option>
+                                <option>Physical Therapy</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block text-black btn-search"><span
+                                    class="icon-search icon mr-2"></span>Search Doctor
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="dentist-area section-padding-35-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                         </br>
+                        <h3 class="lead">Available Doctors </h3>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for apt in home %}
+                    <div class="col-12 col-sm-6 col-md-4">
+                            <br></br>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <center>
+                                            <th scope="col">
+                                                <div class="container">
+                                                    <div class="card" style="width:400px">
+                                                            <div class="card-body">
+                                                                <h4 class="card-title">Information</h4>
+                                                                     <ol>
+                                                                         <li><span>Name :</span><span>{{ apt.full_name }}</span></li>
+                                                                         <li><span>Department :</span><span>{{ apt.department }}</span></li>
+                                                                         <li><span>Qualification :</span><span>{{ apt.qualification_name }}</span></li>
+                                                                         <li><span>Institution :</span><span>{{ apt.institute_name }}</span></li>
+                                                                         <li><span>Start time :</span><span>{{ apt.start_time }}</span></li>
+                                                                         <li><span>End Time :</span><span>{{ apt.end_time }}</span></li>
+                                                                         <li><span>Hosipital name :</span><span>{{ apt.hospital_name }}</span></li>
+                                                                         <li><span>Address :</span><span>{{ apt.location }}</span></li>
+                                                                        <li></li>
+                                                                     </ol>
+                                                                 <i style="font-size:24px" class="fa">&#xf073;</i>
+                                                                <a href="{% url 'appointment:take-appointment' apt.id %}" class="btn btn-primary">Make Appointment</a>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                        </center>
+                                    </tr>
+                                </thead>
+                            </table>
+                    </div>
+            </div>
+                {% endfor %}
+                <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; First</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+        {% endif %}
+    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

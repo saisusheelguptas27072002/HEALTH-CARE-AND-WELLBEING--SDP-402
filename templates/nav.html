@@ -1,0 +1,62 @@
+{% load static %}
+    <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off">
+            <div class="container">
+                <nav class="classy-navbar justify-content-between" id="dentoNav">
+                    <a class="nav-brand" href="{% url 'appointment:home' %}"><img src="{% static 'img/logo1.png' %}" alt="">
+                    </a>
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+                    <div class="classy-menu">
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+                        <div class="classynav">
+                            <ul id="nav">
+                                <li><a href="{% url 'appointment:home' %}">Home</a></li>
+                                <li><a href="{% url 'appointment:service' %}">Services</a></li>
+                                <li><a href="{% url 'accounts:doctor-register' %}"> <b>DOCTOR </b></a></li>
+                                <li><a href="{% url 'accounts:patient-register' %}"> <b>PATIENT </b></a></li>
+                                {% if request.user.is_authenticated and request.user.role == 'doctor' %}
+                                    <li>
+                                        <a href="">
+                                            <span class="glyphicon glyphicon-user">
+                                                    {{ request.user.first_name }}
+                                            </span>
+                                        </a>
+                                        <ul class="dropdown">
+                                            <li><a href="{% url 'accounts:doctor-profile-update'  %}"> EDIT PROFILE</a></li>
+                                            <li><a href="{% url 'appointment:patient-list' %}"> PATIENTS</a></li>
+                                            <li><a href="{% url 'appointment:doctor-appointment' %}">  APPOINTMENTS</a></li>
+                                            <li><a href="{% url 'appointment:doctor-appointment-create' %}"> CREATE APPOINTMENT</a></li>
+                                            <li><a href="{% url 'accounts:logout' %}"> LOGOUT</a></li>
+                                        </ul>
+                                    </li>
+                             {% elif request.user.is_authenticated and request.user.role == 'patient' %}
+                                    <li>
+                                        <a href="">
+                                            <span class="glyphicon glyphicon-user">
+                                                    {{ request.user.first_name }}
+                                            </span>
+                                        </a>
+                                        <ul class="dropdown">
+                                            <li><a href="{% url 'accounts:patient-profile-update'  %}"> EDIT PROFILE</a></li>
+                                            <li><a href="{% url 'accounts:logout' %}"> LOGOUT</a></li>
+                                        </ul>
+                                    </li>
+                              {% else %}
+                                    <li>
+                                        <a href="{% url 'accounts:login' %}">
+                                            <span class="glyphicon glyphicon-user"> login</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

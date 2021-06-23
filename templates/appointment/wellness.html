@@ -1,0 +1,32 @@
+{% load static %}
+<html>
+<head>
+	<title>Wellness</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'wellstyle.css' %}">
+</head>
+<body>
+	<div class="main">
+		<div class="overlay"></div>
+		<div class="navbar">
+			<div class="logo">LOGO</div>
+			<ul>
+				<li><a href="#">HOME</a></li>
+				<li><a href="#">VIDEOS</a></li>
+				<li><a href="#">BLOG</a></li>
+				<li><a href="#">PORTFOLIO</a></li>
+				<li><a href="#">ABOUT US</a></li>
+				<li><a href="#">CONTACT US</a></li>
+			</ul>
+		</div>
+		<div class="heading">
+				<h1 class="head">WELCOME TO FITLAB WELLNESS </h1>
+				<h3 class="sub">Lorem ipsum dolor sit amet</h3>	
+				<div class="btns">
+					<a class="btn1" href="#">WATCH VIDEO</a>
+					<a class="btn2" href="#">SUBSCRIBE US</a>
+				</div>	
+		</div>
+	</div>
+{% block content %}{% endblock %}
+</body>
+</html>
